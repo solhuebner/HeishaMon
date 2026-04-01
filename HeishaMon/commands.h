@@ -70,6 +70,7 @@ unsigned int set_heatingcontrol(char *msg, unsigned char *cmd, char *log_msg);
 unsigned int set_smart_dhw(char *msg, unsigned char *cmd, char *log_msg);
 unsigned int set_quiet_mode_priority(char *msg, unsigned char *cmd, char *log_msg);
 unsigned int set_pump_flowrate_mode(char *msg, unsigned char *cmd, char *log_msg);
+unsigned int set_dhw_sensor_selection(char *msg, unsigned char *cmd, char *log_msg);
 
 
 //optional pcb commands
@@ -162,6 +163,7 @@ const cmdStruct commands[] PROGMEM = {
   { "SetSmartDHW", set_smart_dhw },
   { "SetQuietModePriority", set_quiet_mode_priority },
   { "SetPumpFlowrateMode", set_pump_flowrate_mode },
+  { "SetDHWSensorSelection", set_dhw_sensor_selection },
 };
 
 struct optCmdStruct{

@@ -159,6 +159,7 @@ TOP139 | main/Heating_Control | Heating Control
 TOP140 | main/Smart_DHW | Smart DHW
 TOP141 | main/Quiet_Mode_Priority | Quiet Mode Priority (0=sound, 1=capacity)
 TOP142 | main/Expansion_Valve | Expansion Valve (Steps)
+TOP143 | main/DHW_Sensor_Selection | DHW tank sensor selection (0=Top, 1=Center) (K/L series All-In-One only)
 
 
 
@@ -230,6 +231,7 @@ SET39 | SetHeatingControl | Set heating control | 0=comfort, 1=efficiency
 SET40 | SetSmartDHW | Set SmartDHW | 0=variable, 1=standard
 SET41 | SetQuietModePriority | Set Quiet Mode Priority | 0=sound, 1=capacity
 SET42 | SetPumpFlowrateMode | Set Pump Flowrate Mode | 0=deltaT, 1=max. duty
+SET43 | SetDHWSensorSelection | Set DHW tank sensor selection (K/L series All-In-One only) | 0=Top, 1=Center
 
 *If you operate your heatpump in water mode with direct temperature setup: topics ending xxxRequestTemperature will set the absolute target temperature.*
 

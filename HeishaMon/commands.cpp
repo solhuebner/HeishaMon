@@ -966,6 +966,29 @@ unsigned int set_pump_flowrate_mode(char *msg, unsigned char *cmd, char *log_msg
   return sizeof(panasonicSendQuery);
 }
 
+unsigned int set_dhw_sensor_selection(char *msg, unsigned char *cmd, char *log_msg) {
+
+  const byte address = 11;
+  byte value = 0b01;
+
+  if ( String(msg).toInt() == 1 ) {
+    value = 0b10;
+  }
+
+  {
+    char tmp[256] = { 0 };
+    snprintf_P(tmp, 255, PSTR("set dhw sensor selection %d"), value - 1);
+    memcpy(log_msg, tmp, sizeof(tmp));
+  }
+
+  {
+    memcpy_P(cmd, panasonicSendQuery, sizeof(panasonicSendQuery));
+    cmd[address] = value;
+  }
+
+  return sizeof(panasonicSendQuery);
+}
+
 unsigned int set_external_compressor_control(char *msg, unsigned char *cmd, char *log_msg){
   const byte off_state=64;
   const byte address=23;
