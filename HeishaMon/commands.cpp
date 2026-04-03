@@ -989,6 +989,52 @@ unsigned int set_dhw_sensor_selection(char *msg, unsigned char *cmd, char *log_m
   return sizeof(panasonicSendQuery);
 }
 
+unsigned int set_dhw_heater_state(char *msg, unsigned char *cmd, char *log_msg) {
+
+  const byte address = 9;
+  byte value = 0b01;
+
+  if ( String(msg).toInt() == 1 ) {
+    value = 0b10;
+  }
+
+  {
+    char tmp[256] = { 0 };
+    snprintf_P(tmp, 255, PSTR("set dhw heater state %d"), value - 1);
+    memcpy(log_msg, tmp, sizeof(tmp));
+  }
+
+  {
+    memcpy_P(cmd, panasonicSendQuery, sizeof(panasonicSendQuery));
+    cmd[address] = value << 2;
+  }
+
+  return sizeof(panasonicSendQuery);
+}
+
+unsigned int set_room_heater_state(char *msg, unsigned char *cmd, char *log_msg) {
+
+  const byte address = 9;
+  byte value = 0b01;
+
+  if ( String(msg).toInt() == 1 ) {
+    value = 0b10;
+  }
+
+  {
+    char tmp[256] = { 0 };
+    snprintf_P(tmp, 255, PSTR("set room heater state %d"), value - 1);
+    memcpy(log_msg, tmp, sizeof(tmp));
+  }
+
+  {
+    memcpy_P(cmd, panasonicSendQuery, sizeof(panasonicSendQuery));
+    cmd[address] = value;
+  }
+
+  return sizeof(panasonicSendQuery);
+}
+
 unsigned int set_external_compressor_control(char *msg, unsigned char *cmd, char *log_msg){
   const byte off_state=64;
   const byte address=23;

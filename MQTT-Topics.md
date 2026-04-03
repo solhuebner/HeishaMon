@@ -232,6 +232,8 @@ SET40 | SetSmartDHW | Set SmartDHW | 0=variable, 1=standard
 SET41 | SetQuietModePriority | Set Quiet Mode Priority | 0=sound, 1=capacity
 SET42 | SetPumpFlowrateMode | Set Pump Flowrate Mode | 0=deltaT, 1=max. duty
 SET43 | SetDHWSensorSelection | Set DHW tank sensor selection (K/L series All-In-One only) | 0=Top, 1=Center
+SET44 | SetDHWHeaterState | Allow DHW backup/booster heater | 0=blocked, 1=free
+SET45 | SetRoomHeaterState | Allow Room backup/booster heater | 0=blocked, 1=free
 
 *If you operate your heatpump in water mode with direct temperature setup: topics ending xxxRequestTemperature will set the absolute target temperature.*
 
